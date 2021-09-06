@@ -28,10 +28,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 
-# Use ActiveStorage variant
+# Use ActiveStorage variant et traitement d'image
 gem 'mini_magick', '~> 4.8'
 gem 'carrierwave', '~> 2.0'
-gem 'mimemagic'
+#gem 'mimemagic'
 
 
 # Use Capistrano for deployment

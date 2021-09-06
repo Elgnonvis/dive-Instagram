@@ -1,7 +1,7 @@
 <div class="w-50 d-flex flex-column container justify-content-center align-itmes-center" style = "padding-top: 1rem; border: 1px solid;">
 <div><img style = "padding-bottom: 1rem;" src="/instagram.png" class="img-fluid" alt="" ></div>
 
-<p>Inscrivez-vous pour voir les photos de vos amis</p> <br>
+<h1>Inscrivez-vous pour voir les photos de vos amis</h1> <br>
 
 <%= form_with(model: @user, local: true, html: {class:'form-horizontal'}) do |f| %>
    <% if @user.errors.any? %>

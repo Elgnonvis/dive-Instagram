@@ -1,6 +1,9 @@
 class User < ApplicationRecord
 
     has_many :posts
+    has_many :favorites, dependent: :destroy
+    has_many :favorite_users, through: :favorites, source: :user
+    mount_uploader :image, ImageUploader
 
     validates :username, presence: true,
     uniqueness: { case_sensitive: false},
