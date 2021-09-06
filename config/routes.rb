@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   get '/profil', to: 'users#edit', as: :profil
   patch "/profil", to: "users#update"
 
