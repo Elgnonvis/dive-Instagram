@@ -19,6 +19,13 @@
         <% if @post.user == current_user %>
             <a class="btn btn-danger w-25 m-4" href = "<%= edit_post_path(@post)%>">Modifier</a> 
         <% end %>
+        <% unless @post.user_id == current_user.id %>
+          <% if @favorite.present? %>
+            <%= link_to 'Supprimer le favori', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger w-25 m-4' %>
+         <% else %>
+          <%= link_to 'Ajouter au favoris', favorites_path(post_id: @post.id),method: :post, class: 'btn btn-primary w-25 m-4' %>
+          <% end %>
+        <% end %>
             <a class="btn btn-primary w-25 m-4" href = "<%= posts_path%>"> Retour</a>        
       </div>
 </div> <br> <br><br>

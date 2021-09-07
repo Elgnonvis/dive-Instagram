@@ -22,7 +22,7 @@
           ><%= post.created_at %></small
         >
 
-        <%if post.post.user==current_user %>
+        <%if post.post.user == current_user %>
         <p class="text-center d-block">
           <%= link_to 'Edit', edit_post_path(post), class: "btn btn-warning
           text-dark" %>

@@ -1,25 +1,29 @@
 <p id="notice"><%= notice %></p>
+<div class="d-flex flex-row justify-content-center align-items-center container">
+<div class="">
+  <%if @user.avatar.url%> <%= image_tag @user.avatar.url, class: "img-fluid", width:
+  "300px"%>
+  <%else%>
+  <%end%>
+</div>
+<div></div>
+<div class="">
+  <p>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </p>
 
-<p>
-  <strong>Avatar:</strong>
-  <%= image_tag @user.avatar.url %>
-</p>
+  <p>
+    <strong>Username:</strong>
+    <%= @user.username %>
+  </p>
 
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <%= link_to 'Modifier', edit_user_path(@user), class: "btn btn-warning" %> |
+  <%= link_to 'Retour', posts_path , class: "btn btn-danger"%>
+  </div>
+</div>

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:success] = 'Connexion réussie'
-      redirect_to profil_path
+      redirect_to posts_url
 
       else
         flash[:danger] = 'Identifiants incorrects'

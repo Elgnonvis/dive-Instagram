@@ -27,10 +27,14 @@
           </div>
           <div class="dropdown text-end">
             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="/avatar.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <% if current_user.avatar? %>
+            <%= image_tag current_user.avatar.url, class:"rounded-circle", height:32, width:32, alt:"mdo" %>
+            <% else %>
+            <img src="/avatar.png" class="rounded-circle",height="32", width="32", alt="mdo" >
+            <% end %>
             </a>
             <ul class="dropdown-menu text-small text-decoration-none" aria-labelledby="dropdownUser1">
-              <li class = "btn btn-secondary m-2 justify-content-center"><a class="dropdown-item" href="profil_path">Mon profil</a></li>
+              <li class = "btn btn-secondary m-2 justify-content-center"><a class="dropdown-item" href="<%= user_path(current_user) %>">Mon profil</a></li>
               <li><hr class="dropdown-divider"></li>
               <li class ="btn btn-danger m-2 justify-content-center text-decoration-none">
                   <%= link_to "Se déconnecter", destroy_session_path(current_user.id), method: :delete, class:"btn" %>
