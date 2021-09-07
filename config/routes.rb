@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
   root 'posts#index'
   # get '/profil', to: 'users#show', as: :profil
   # patch "/profil", to: "users#update"
