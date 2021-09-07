@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   root 'posts#index'
   get '/profil', to: 'users#edit', as: :profil
   patch "/profil", to: "users#update"
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: :destroy_session
 
   resources :users, only: [:new, :create, :show, :edit]
-
+  resources :favorite
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :posts do
     collection do
     post :confirm

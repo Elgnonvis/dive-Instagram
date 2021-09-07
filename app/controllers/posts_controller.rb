@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @favorite  =current_user.favorites.find_by(post_id: @post.id)
   end
 
   def new
@@ -23,6 +24,7 @@ class PostsController < ApplicationController
         render :new
       else
         if @post.save
+          UserMailer.user_mailer(current_user).deliver
           flash[:success] = "Post crée avec succès"
           redirect_to posts_url
         else
@@ -40,7 +42,6 @@ class PostsController < ApplicationController
   end
 
   def update
-   
     if @post.update(post_params)
       flash[:success] = "Post mis à jour avec succès"
       redirect_to posts_url
@@ -55,13 +56,13 @@ class PostsController < ApplicationController
   redirect_to posts_url
 end
 
-  private
+private
     
-  def set_post
-    @post = Post.find(params[:id])
-  end
+def set_post
+  @post = Post.find(params[:id])
+end
 
-  def post_params
-    params.require(:post).permit(:illustration, :illustration_cache, :description, :user_id)
-  end
+def post_params
+  params.require(:post).permit(:illustration, :illustration_cache, :description, :user_id)
+end
 end
