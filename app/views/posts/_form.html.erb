@@ -1,4 +1,6 @@
-<%= form_with(model: post, local: true) do |form| %>
+<div class="form-actions d-flex flex-column justify-content-center align-items-center">
+
+<%= form_with(model: post, local: true, url: new_or_create_not_edit) do |f| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,22 +13,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :illustration %>
-    <%= form.text_field :illustration %>
-  </div>
+  <div class="form-inputs">
+      <%= image_tag(@post.illustration.url) if @post.illustration && @post.illustration.url %>
+      <%= f.file_field :avatar, class: 'form-control' %>
+      <%= f.hidden_field :illustration_cache %>
+    </div><br>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div><br>
+ 
+  <%# <div class="form-actions d-flex flex-column justify-content-center align-items-center w-75"> %>
+     <button class="btn btn-primary w-75" type="submit">Publier </button>
+  <%# </div> %>
 <% end %>
+ </div>
