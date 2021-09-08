@@ -33,7 +33,7 @@ gem 'mini_magick', '~> 4.8'
 gem 'carrierwave', '~> 2.0'
 #gem 'mimemagic'
 
-
+gem 'faker', '~> 2.19'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -51,7 +51,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web', '~> 1.4'
-  gem 'faker', '~> 2.19'
 end
 
 group :test do

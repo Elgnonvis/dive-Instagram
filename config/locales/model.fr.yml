@@ -1,0 +1,19 @@
+fr:
+activerecord:
+models:
+post: Post
+user: Utilisateur
+favorite: Favoris
+attributes:
+post:
+illustration: Photo d'illustration
+description: Description
+user:
+email: Adresse mail
+name: Nom complet
+username: Nom d'utilisateur
+avatar: Phot de profil
+password: mot de passe
+password_confirmation: confirmation du mot de passe
+
+current_user: Utilisateur courant
