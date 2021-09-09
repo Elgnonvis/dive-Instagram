@@ -17,24 +17,25 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a href="/" class="navbar-brand d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"><span class="fb">Instagram</span>
           </a>
-          <ul class="nav col-6 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="/" class="nav-link px-2 text-white">Home</a></li>
-          </ul>
+          <ul class="nav me-lg-auto mb-2 justify-content-center mb-md-0"></ul>
 
           <% if logged_in? %> 
           <div class="text-end me-4">
             <a href="<%= new_post_path %>" class="btn btn-danger" role="button">Ajouter un Post</a>
           </div>
+          <div class="text-end me-4">
+            <a href="<%= favorites_path %>" class="btn btn-success" role="button">Mes favoris</a>
+          </div>
           <div class="dropdown text-end">
             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <% if current_user.avatar? %>
-            <%= image_tag current_user.avatar.url, class:"rounded-circle", height:32, width:32, alt:"mdo" %>
+            <%= image_tag current_user.avatar.url, class:"rounded-circle", height:32, width:32, alt:"Avatar" %>
             <% else %>
-            <img src="/avatar.png" class="rounded-circle",height="32", width="32", alt="mdo" >
+            <img src="/avatar.png" class="rounded-circle",height="32", width="32", alt="Avatar" >
             <% end %>
             </a>
             <ul class="dropdown-menu text-small text-decoration-none" aria-labelledby="dropdownUser1">
-              <li class = "btn btn-secondary m-2 justify-content-center"><a class="dropdown-item" href="<%= user_path(current_user) %>">Mon profil</a></li>
+              <li class = "btn btn-secondary m-2 justify-content-center"><a class="dropdown-item" href="/profil">Mon profil</a></li>
               <li><hr class="dropdown-divider"></li>
               <li class ="btn btn-danger m-2 justify-content-center text-decoration-none">
                   <%= link_to "Se déconnecter", destroy_session_path(current_user.id), method: :delete, class:"btn" %>
@@ -66,8 +67,8 @@
         © Dive into code ~ Septembre 2021 Copyright: <a class="text-white" href="http://bit.ly/EmiG">Emile GBENONCHI</a>
       </div>
     </footer>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

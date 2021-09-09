@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  # before_action :set_user, only: %i[ edit update ]
   skip_before_action :login_required, only: [:new, :create]
   
   def new
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def edit
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     user_params = params.require(:user).permit(:avatar, :name, :username, :email, :password)
       if @user.update(user_params)
         flash[:success] = "Votre compte a été mis à jour avec succès"
-        redirect_to user_path
+        redirect_to profil_path
       else
         render :edit
       end
@@ -38,9 +38,9 @@ class UsersController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(params[:id])
-  end
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
 
   def user_params
     params.require(:user).permit(:email, :name, :username, :password, :password_confirmation)

@@ -8,9 +8,9 @@ class User < ApplicationRecord
 
     validates :username, presence: true
 
-    # uniqueness: { case_sensitive: false},
-    # length: {minimum:6, maximum:20},
-    # format: { with: /\A[a-zA-Z0-9_]{6,20}\z/, message: 'ne doit contenir que des caractères alphanumériques ou undescore' }
+    # # uniqueness: { case_sensitive: false},
+    # # length: {minimum:6, maximum:20},
+    # # format: { with: /\A[a-zA-Z0-9_]{6,20}\z/, message: 'ne doit contenir que des caractères alphanumériques ou undescore' }
     validates :name, presence: true, length: {maximum: 30}
     validates :email, presence: true,
     uniqueness: { case_sensitive: false},
