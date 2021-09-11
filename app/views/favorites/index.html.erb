@@ -10,28 +10,22 @@
           <span class="float-end">
           <%= post.user.name.upcase %></span>
         <%else%>
-          <p>Photo de profil absent</p>
         <%end%>
       </div>
 
       <div class="card-body">
-        <%= image_tag post.illustration.url, class: "card-img-top", height:
+        <%= image_tag post.post.illustration.url, class: "card-img-top", height:
         "300px" %>
-        <p class="card-text"><%= post.description %></p>
+        <p class="card-text"><%= post.post.description %></p>
       </div>
 
       <div class="card-footer clearfix">
         <small class="text-muted" style="float: right"><%= post.created_at %></small>
         <%if post.user == current_user %>
-        <p class="text-center d-block">
-          <%= link_to 'Edit', edit_post_path(post), class: "btn btn-warning
-          text-dark" %>
-        </p>
-        <p>
+          <%= link_to 'Edit', edit_post_path(post), class: "btn btn-warning text-dark" %>
           <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Etes-vous sûr?' }, class: "btn btn-danger text-light" %>
-        </p>
         <% else %>
-         
+      
         <% end %>    
       </div>
     </div>

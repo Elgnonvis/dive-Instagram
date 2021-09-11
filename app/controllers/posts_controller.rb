@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  skip_before_action :login_required, only: [:index]
+  # skip_before_action :login_required, only: [:index]
   before_action :set_post, only: %i[ show edit update destroy ]
 
   def index
@@ -12,10 +12,10 @@ class PostsController < ApplicationController
 
   def new
     if params[:back]
-    @post = Post.new(post_params)
+      @post = Post.new(post_params)
     else
-      @post = Post.new
-    end
+        @post = Post.new
+      end
   end
 
   def create
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
         render :new
       else
         if @post.save
-          UserMailer.user_mailer(current_user).deliver
+          # UserMailer.user_mailer(current_user).deliver
           flash[:success] = "Post crée avec succès"
           redirect_to posts_url
         else
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
 
  def destroy
   @post.destroy
-  flash[:danger] = "Post supprimé avec succès."
+  flash[:danger] = "Post supprimé avec succès!"
   redirect_to posts_url
 end
 
@@ -63,6 +63,6 @@ def set_post
 end
 
 def post_params
-  params.require(:post).permit(:illustration, :illustration_cache, :description, :user_id)
+  params.require(:post).permit(:illustration, :illustration_cache, :description)
 end
 end

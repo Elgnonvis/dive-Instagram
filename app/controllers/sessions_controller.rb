@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.destroy
+    flash[:success] = 'Déconnexion réussie !'
     redirect_to new_session_path
-    flash[:success] = 'Déconnexion réussie'
   end
 end

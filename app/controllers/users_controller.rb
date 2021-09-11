@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = 'Compte crée avec succès, vous pouvez vous connectez'
-      redirect_to user_path(@user.id)
+      redirect_to profil_path
     else
       render :new
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     user_params = params.require(:user).permit(:avatar, :name, :username, :email, :password)
       if @user.update(user_params)
         flash[:success] = "Votre compte a été mis à jour avec succès"
-        redirect_to profil_path
+        render :show
       else
         render :edit
       end

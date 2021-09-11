@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
     has_many :posts
     has_many :favorites, dependent: :destroy
-    has_many :favorite_posts, through: :favorites, source: :post
+    # has_many :favorite_users, through: :favorites, source: :user
     
     mount_uploader :avatar, ImageUploader
 
@@ -16,8 +16,7 @@ class User < ApplicationRecord
     uniqueness: { case_sensitive: false},
     length: {maximum: 255},
     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-    validates :password, presence: true,
-    length: {minimum: 8}
+    validates :password, length: {minimum: 8}
     
     has_secure_password
 end

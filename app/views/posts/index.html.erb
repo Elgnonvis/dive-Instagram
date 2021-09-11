@@ -28,7 +28,7 @@
 
               <% if post.user == current_user %>
               <td>
-                <a href = "<%= edit_post_path(post.id)%>" class="btn btn-primary">Edit</a>
+                <a href = "<%= edit_post_path(post.id)%>" class="btn btn-warning">Edit</a>
               </td>
               <td>
                 <a href = "<%= post_path(post.id)%>" class="btn btn-danger" data-confirm="Etes-vous surs?" data-method="DELETE">Destroy</a>

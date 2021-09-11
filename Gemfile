@@ -4,12 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 #ruby '2.6.5'
 gem 'rails', '~> 5.2.5'
 
-################################
 #database and server gems
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 
-#########################
 # Front end gems
 gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.2'
@@ -23,19 +21,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 
-# gem 'mini_racer', platforms: :ruby
-
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-
-# Use ActiveStorage variant et traitement d'image
 gem 'mini_magick', '~> 4.8'
 gem 'carrierwave', '~> 2.0'
-#gem 'mimemagic'
+
 
 gem 'faker', '~> 2.19'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 
 gem 'bootsnap', '>= 1.1.0', require: false
