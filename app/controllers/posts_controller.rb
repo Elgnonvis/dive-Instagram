@@ -24,7 +24,7 @@ class PostsController < ApplicationController
         render :new
       else
         if @post.save
-          # UserMailer.user_mailer(current_user).deliver
+          UserMailer.user_mailer(current_user).deliver
           flash[:success] = "Post crée avec succès"
           redirect_to posts_url
         else
